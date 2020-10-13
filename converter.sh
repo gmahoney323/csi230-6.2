@@ -6,6 +6,7 @@
 # lab 6.2
 # date 10/13/20
 
+# echoes to the user the proper usage of the script
 usage()
 {
 	echo "$0 usage: [-f input filed] [-c U(upper) or L(lower)"
@@ -38,8 +39,9 @@ do
 	;;
 	esac
 done
-#conversion logic here
 
+#checks if the input U is used for the -c flag, in which it converts
+#lowercase to uppercase. Otherwise, it converts uppercase to lowercase
 while read line
 do
   if [ ${c} == "U" ]; then

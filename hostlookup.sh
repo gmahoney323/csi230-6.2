@@ -1,12 +1,19 @@
 #!/bin/bash
-#comments go here
 
+# hostlookup.sh
+# brief  looks up host addresses given a file that contains hostnames
+# author Grant Mahoney
+# lab 6.2
+# date 10/13/20
+
+# echoes to user the proper usage of the script
 usage()
 {
 	echo "$0 usage: [-f input file]"
 	exit 1
 }
 
+# checks if the file exists, if not, calls usage
 while getopts ":f:" options;
 do
   case "${options}" in
@@ -24,7 +31,8 @@ do
   ;;
   esac
 done
-#for h in champlain.edu uvm.edu umd.edu doesnotexist.edu
+
+# reads the given file, cuts the ip address and displays it neatly
 while read h
 do
   out=$(host -W1 -t A $h)
